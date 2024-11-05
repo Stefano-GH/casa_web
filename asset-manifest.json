@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/casa_web/static/css/main.86e7607b.css",
-    "main.js": "/casa_web/static/js/main.1cd753c0.js",
+    "main.css": "/casa_web/static/css/main.edda391e.css",
+    "main.js": "/casa_web/static/js/main.f8fa2c4d.js",
     "index.html": "/casa_web/index.html",
-    "main.86e7607b.css.map": "/casa_web/static/css/main.86e7607b.css.map",
-    "main.1cd753c0.js.map": "/casa_web/static/js/main.1cd753c0.js.map"
+    "main.edda391e.css.map": "/casa_web/static/css/main.edda391e.css.map",
+    "main.f8fa2c4d.js.map": "/casa_web/static/js/main.f8fa2c4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.86e7607b.css",
-    "static/js/main.1cd753c0.js"
+    "static/css/main.edda391e.css",
+    "static/js/main.f8fa2c4d.js"
   ]
 }
