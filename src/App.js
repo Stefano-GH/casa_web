@@ -4,6 +4,8 @@
 */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
+import Regole from "./pages/regole/Regole";
 
 
 
@@ -13,9 +15,15 @@ import Navbar from "./components/navbar/Navbar";
 */
 function App() {
 
-  return <BrowserRouter>
-    <Navbar />
-  </BrowserRouter>
+    return <BrowserRouter>
+        <Navbar />
+
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/rules" element={<Regole />} />
+        </Routes>
+
+    </BrowserRouter>
 }
 
 export default App;

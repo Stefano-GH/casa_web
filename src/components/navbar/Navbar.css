@@ -1,4 +1,88 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5em;
+}
+
 .profile-wrapper{
     font-size: 2.5em;
     padding: 0.1em 0.3em;
+}
+
+.profile-icon{
+    cursor: pointer;
+}
+
+.location-wrapper{
+    font-size: 1.7em;
+    text-decoration: none;
+}
+
+.link-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    font-size: 1.7em;
+    margin-right: 1em;
+}
+
+.link-subitem p{
+    cursor: pointer;
+    display: inline-block;
+}
+
+.link-item.active{
+    color: red;
+}
+
+.burger-wrapper{
+    cursor: pointer;
+    display: none;
+    font-size: 2.2em;
+}
+
+
+/*------------------------------
+  720 PX
+  ------------------------------
+*/
+@media screen and (max-width: 720px) {
+    .link-wrapper{
+        display: none;
+        gap: 0;
+    }
+
+    .burger-wrapper{
+        display: block;
+        margin-right: 1em;
+    }
+
+    .link-wrapper.show{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 52px;
+        width: 100%;
+        font-size: 2em;
+    }
+
+    .link-wrapper.show div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 65px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .link-wrapper.show div p{
+        margin: 0;
+        padding: 0;
+        line-height: 1.5em;
+    }
 }
