@@ -50,25 +50,15 @@ const Navbar = () => {
             <FontAwesomeIcon className="profile-icon" icon={faUser} onMouseEnter={() => setProfileHovered(true)} onMouseLeave={() => setProfileHovered(false)}/>
         </div>
 
-        <div className="location-wrapper" style={{ borderBottom:`3px solid ${COLOR_2}` }}>
-            {links.map((item,index) => (
-                <p key={index} style={{ color:`${COLOR_2}` }}>
-                    {currentPath === item.to ? links[index].titolo : null}
-                </p>
-            ))}
-        </div>
-
         <div className={isBurgerActive ? "link-wrapper show" : "link-wrapper"} style={{ backgroundColor:`${COLOR_1}` }}>
             {links.map((item, index) => (
-                <div key={index} className={currentPath===item.to ? "link-item active" : "link-item"}
-                style={{ borderTop: isBurgerActive ? `1px solid ${COLOR_3}` : "none" }}>
-                    <NavLink className="link-subitem" to={currentPath===item.to ? "/" : item.to}
-                    onClick={() => {
-                        setIsBurgerActive(false);
-                    }}>
-                        <p style={hoveredStyle(linkHovered[index])} 
+                <div key={index} className="link-item" style={{
+                    borderTop: isBurgerActive ? `1px solid ${COLOR_3}` : "none"
+                }}>
+                    <NavLink className="link-subitem" to={item.to} onClick={() => setIsBurgerActive(false)}>
+                        <p style={{ ...hoveredStyle(linkHovered[index]), textDecoration: currentPath===item.to ? 'underline' : 'none' }}
                         onMouseEnter={() => getHovered("enter",index)} onMouseLeave={() => getHovered("leave",index)}>
-                            {currentPath===item.to ? "Home" : item.titolo}
+                            {item.titolo}
                         </p>
                     </NavLink>
                 </div>

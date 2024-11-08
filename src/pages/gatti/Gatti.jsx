@@ -2,18 +2,18 @@
   LIBRARIES AND CONSTANTS
   ----------------------------------------
 */
-import "./Regole.css";
+import "./Gatti.css";
 
 
 /*----------------------------------------
   STRUCTURE
   ----------------------------------------
 */
-const Regole = () => {
+const Gatti = () => {
 
     return <div>
-        <h1>Regole della Casa</h1>
+        <h1>I Nostri Gatti</h1>
     </div>
-};
+}
 
-export default Regole;
+export default Gatti;

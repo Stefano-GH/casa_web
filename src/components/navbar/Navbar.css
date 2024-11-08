@@ -2,7 +2,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0.5em;
+    height: 7vh;
 }
 
 .profile-wrapper{
@@ -14,28 +14,24 @@ nav{
     cursor: pointer;
 }
 
-.location-wrapper{
-    font-size: 1.7em;
-    text-decoration: none;
-}
-
 .link-wrapper{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     gap: 30px;
     font-size: 1.7em;
     margin-right: 1em;
+    height: 100%;
+}
+
+.link-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .link-subitem p{
     cursor: pointer;
     display: inline-block;
-}
-
-.link-item.active{
-    color: red;
 }
 
 .burger-wrapper{
@@ -53,6 +49,7 @@ nav{
     .link-wrapper{
         display: none;
         gap: 0;
+        height: auto;
     }
 
     .burger-wrapper{
