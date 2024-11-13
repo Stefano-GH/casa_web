@@ -75,6 +75,7 @@
   ------------------------------
   */
 .events-section {
+    background-color: #E4E0E1;
     padding: 40px 20px;
     text-align: center;
 }
@@ -119,6 +120,13 @@
     font-size: 0.8em;
 }
 
+.event-card.new-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -153,6 +161,17 @@
     border-radius: 5px;
     cursor: pointer;
     padding: 0.5em 1em;
+}
+
+.events-edit-btn{
+    background-color: #FAB12F;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    height: 32px;
+    margin-top: 30px;
+    width: 120px;
 }
 
 

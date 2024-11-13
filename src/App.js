@@ -2,16 +2,9 @@
   LIBRARIES AND CONSTANTS
   ----------------------------------------
 */
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import supabase from "./SupabaseClient.js"
-import { communications } from "./data/Data.js";
-import Navbar from "./components/navbar/Navbar";
-import Home from "./pages/home/Home";
-import Gatti from "./pages/gatti/Gatti.jsx";
-import Regole from "./pages/regole/Regole";
-
-
+import { useEffect, useState } from "react";
+import Login from "./app_router/login/Login";
+import AppRouter from "./app_router/AppRouter";
 
 
 /*----------------------------------------
@@ -19,34 +12,36 @@ import Regole from "./pages/regole/Regole";
   ----------------------------------------
 */
 function App() {
-    /*const [communications, setCommunications] = useState([]);
 
+    // gestione logout
+    const [personData, setPersonData] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    // verifico l'esistenza de ltoken di autenticazione
     useEffect(() => {
-        const fetchCommunications = async() => {
-            const { data,error } = await supabase
-                .from("Communications")
-                .select('*');
-            
-            if (error) {
-                console.log("Errore: ", error);
-            } else {
-                setCommunications(data);
-                console.log(data);
-            }
-        };
-        fetchCommunications();
-    },[])*/
+        const nome = localStorage.getItem("nome");
+        const cognome = localStorage.getItem("cognome");
 
-    return <BrowserRouter>
-        <Navbar />
+        if (nome && cognome) {
+            setIsAuthenticated(true);
+        }
+    },[])
 
-        <Routes>
-            <Route path="/casa_web" element={<Home communications={communications} />} />
-            <Route path="/casa_web/gatti" element={<Gatti />} />
-            <Route path="/casa_web/rules" element={<Regole />} />
-        </Routes>
+    // definisco il logout
+    const handleLogout = () => {
+        localStorage.removeItem("nome");
+        localStorage.removeItem("cognome");
+        setPersonData(null);
+        setIsAuthenticated(false);
+    }
 
-    </BrowserRouter>
+    return <div>
+        {!isAuthenticated ? (
+            <Login setPersonData={setPersonData} setIsAuthenticated={setIsAuthenticated}/>
+        ) : (
+            <AppRouter personData={personData} handleLogout={handleLogout}/>
+        )}
+    </div>
 }
 
 export default App;

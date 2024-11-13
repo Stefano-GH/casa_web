@@ -19,7 +19,7 @@ const COLOR_4 = `#${process.env.REACT_APP_COLOR_4}`;
   STRUCTURE
   ----------------------------------------
 */
-const Navbar = () => {
+const Navbar = ( {handleLogout} ) => {
 
     // generazione degli stati dinamici
     const [profileHovered, setProfileHovered] = useState(false);
@@ -47,7 +47,8 @@ const Navbar = () => {
 
     return <nav style={{ backgroundColor:`${COLOR_1}`, color:`${COLOR_3}` }}>
         <div className="profile-wrapper" style={hoveredStyle(profileHovered)}>
-            <FontAwesomeIcon className="profile-icon" icon={faUser} onMouseEnter={() => setProfileHovered(true)} onMouseLeave={() => setProfileHovered(false)}/>
+            <FontAwesomeIcon className="profile-icon" icon={faUser} title="Logout" onClick={(e) => handleLogout()}
+            onMouseEnter={() => setProfileHovered(true)} onMouseLeave={() => setProfileHovered(false)}/>
         </div>
 
         <div className={isBurgerActive ? "link-wrapper show" : "link-wrapper"} style={{ backgroundColor:`${COLOR_1}` }}>

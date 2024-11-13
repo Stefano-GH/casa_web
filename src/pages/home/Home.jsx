@@ -7,6 +7,7 @@ import { useState } from "react";
 import Modal from 'react-modal';
 import { frasiBenvenuto, links } from "../../data/Data.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePlus,faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 const COLOR_1 = `#${process.env.REACT_APP_COLOR_1}`;
 const COLOR_2 = `#${process.env.REACT_APP_COLOR_2}`;
@@ -19,7 +20,7 @@ const COLOR_5 = `#${process.env.REACT_APP_COLOR_5}`;
   STRUCTURE
   ----------------------------------------
 */
-const Home = ( {communications} ) => {
+const Home = ( {personData, communications} ) => {
 
     const [buttonHovered, setButtonHovered] = useState(false);
 
@@ -53,6 +54,8 @@ const Home = ( {communications} ) => {
             </div>
         </section>
 
+
+
         {/* Frasi di Benvenuto */}
         <section className="welcomes-section" id="welcomes">
             <h2>Non sei il benvenuto se...</h2>
@@ -69,8 +72,10 @@ const Home = ( {communications} ) => {
             </div>
         </section>
 
+
+
         {/* Calendario degli eventi e comunicazioni */}
-        <section className="events-section" id="comunicazioni" style={{ backgroundColor:COLOR_3, color:`${COLOR_1}` }}>
+        <section className="events-section" id="comunicazioni" style={{ color:`${COLOR_1}` }}>
             <h2>Calendario degli Eventi e Comunicazioni</h2>
             <div className="events-list">
                 {communications.map((comm, index) => (
@@ -88,7 +93,16 @@ const Home = ( {communications} ) => {
                         </div>
                     </div>
                 ))}
+                {personData.ruolo === "amministratore" && (
+                    <div className="event-card new-card" style={{ color:COLOR_2 }}>
+                        <FontAwesomeIcon icon={faSquarePlus} />
+                    </div>
+                )}
             </div>
+
+            {personData.ruolo === "amministratore" && (
+                <button className="events-edit-btn"><FontAwesomeIcon icon={faPenToSquare} /> Modifica</button>
+            )}
 
             {/* Modal di dettaglio */}
             <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Dettaglio Comunicazione"
@@ -115,7 +129,14 @@ const Home = ( {communications} ) => {
                     
                 </div>}
             </Modal>
+
+            {/* Modal di Modifica */}
+            <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Modifica Comunicazioni">
+                Prova
+            </Modal>
         </section>
+
+
 
         {/* Card per altre pagine */}
         <section className="cards-section">
